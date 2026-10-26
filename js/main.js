@@ -259,7 +259,7 @@
     // ===== Column 3 (photos 11-15) =====
     // Photo 11 — Portrait
     {
-      file: "assets/photography/sch-kuya.jpg",
+      file: "assets/photography/sch-kuya.JPG",
       title: "Unscripted",
       ratio: 3 / 4,
     },
