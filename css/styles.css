@@ -1,9 +1,3 @@
-/* ==========================================================================
-   styles.css  -  how the website LOOKS (colors, fonts, spacing, animations)
-   Tip: the colors used everywhere are  #ee1d50 (red)  #ff2c59  #a8112f (dark red)
-        #ffdb41 (yellow)  #ff61a8 (pink)  #fff4ea (cream)  #fbfdfe (page white)
-   ========================================================================== */
-
 /* Fonts are loaded from the assets/fonts folder. */
 @font-face {
   font-family: "Carlsons Script";
@@ -1382,7 +1376,7 @@ button.jump {
   width: 35em;
   height: 39em;
   margin: 0 auto;
-  font-size:min(20px,calc((100vw - 36px) / 35));
+  font-size: min(20px, calc((100vw - 36px) / 35));
 }
 .phone {
   position: absolute;
@@ -2090,4 +2084,3 @@ button.jump {
     display: inline;
   }
 }
-

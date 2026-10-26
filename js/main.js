@@ -1,33 +1,6 @@
-/* ==========================================================================
-   main.js  -  how the website BEHAVES (clicks, tabs, galleries, viewers)
-
-   The file has three parts:
-     PART 1  YOUR CONTENT   - the lists you edit (photos, videos, projects...)
-     PART 2  HELPERS        - small tools the rest of the code uses
-     PART 3  THE FEATURES   - tabs, project gallery, photo gallery, viewers...
-
-   You will mostly work in PART 1. If you are not sure about something in
-   PART 2 or PART 3, leave it alone and ask.
-
-   WHAT LIVES IN PART 1 (Ctrl+F for the name in capitals):
-     TOOLS      the tool icons in About              (name + icon file)
-     SKILLS     the Creative Expertise buttons       (label + list of chips)
-     PROJECTS   graphic design projects and images   (title, description, files)
-     PHOTOS     the 20 photography pieces            (file + title; Photo 1...20)
-     PRODUCTS   the 5 product photos                 (file + title; Product 1...5)
-     VIDEOS     the 2 videos                         (title + file)
-   Text such as About, Awards, Contact is in index.html (search for  ✏️ EDIT).
-   ========================================================================== */
-
 (function () {
   "use strict";
 
-  /* ======================================================================
-     PART 1 - YOUR CONTENT
-     ====================================================================== */
-
-  /* ---- Tools I use (About section) ---------------------------------------
-     name = the label under the icon.  src = where the icon file lives.      */
   var TOOLS = [
     { name: "Canva", src: "assets/images/tools/canva.png" },
     { name: "Adobe Photoshop", src: "assets/images/tools/photoshop.png" },
@@ -62,15 +35,6 @@
     },
   ];
 
-  /* ---- Graphic design projects (Posters + Social media) ------------------
-     category : 'poster' or 'social'  (which tab the project appears in)
-     items    : the designs inside the project, one line each.
-       A real image:   { type: 'image', src: 'assets/images/projects/FILE.jpg',
-                         alt: 'what the image shows', width: 1080, height: 1350 }
-         (width and height = the picture's size in pixels; any numbers with
-          the SAME shape as the picture work, they only keep it from stretching)
-       A placeholder:  { type: 'placeholder', label: 'Name', note: 'Your file goes here' }
-         (replace it with an image line when you have the file)                */
   var PROJECTS = [
     {
       id: "messi",
@@ -227,27 +191,8 @@
         },
       ],
     },
-
-    
   ];
 
-  /* ---- The 20 photography pieces -------------------------------------------
-     HOW TO READ THIS LIST
-       Every entry starts with a label like  "Photo 7 — Landscape".
-       The number is the photo's place in the gallery. The gallery has 4 columns of 5:
-         Photos 1-5 = column 1,  6-10 = column 2,  11-15 = column 3,  16-20 = column 4.
-       Placeholders on the page say "no. 07", which is the same number.
-       The orientation in the label describes the placeholder shape set by "ratio".
-       When you add a real photo, the gallery uses the photo's own shape automatically
-       (nothing is cropped), so just update the word in the label if it differs.
-
-     EACH ENTRY HAS THREE SETTINGS
-       file  : the image path, e.g. 'assets/photography/photo-07.jpg'  (null = placeholder)
-       title : the short title shown in the full-screen viewer
-       ratio : width / height, used ONLY for the placeholder shape
-
-     TO REPLACE A PHOTO: find its "Photo N" label, save your image in
-     assets/photography/ and set file to its path. Then edit the title.            */
   var PHOTOS = [
     // ===== Column 1 (photos 1-5) =====
     // Photo 1 — Landscape
@@ -375,22 +320,6 @@
     },
   ];
 
-  /* ---- Product photography (the row that slides as you move the pointer) ---
-     Exactly five photos, in the order they appear (left to right).
-     All five are landscape. One is 5184 x 3456 px (3:2) and four are 5184 x 2912 px (16:9).
-     The frame is always a 4:5 Polaroid, so every frame stays the same size.
-
-     EACH ENTRY HAS THESE SETTINGS
-       file  : the image path. Save the photo in assets/product/ and use its file name.
-       title : the small title under the photo. Edit it freely.
-       fit   : OPTIONAL. By default the WHOLE photo is shown, nothing cut off, and the rest
-               of the 4:5 frame is filled with a soft blur of the same photo.
-               'matte'  = whole photo on a plain soft pink mat instead.
-               'cover'  = photo fills the frame and the sides are trimmed.
-       focus : OPTIONAL, only used with fit: 'cover'. Which part to keep, as 'x% y%',
-               e.g. '30% 50%' keeps the left side.
-     TO REPLACE A PHOTO: find its "Product N" label and change its file name.
-     TIP: resize photos to about 1600 px wide first. 5184 px files load very slowly.  */
   var PRODUCTS = [
     // Product 1 — Landscape
     {
@@ -410,11 +339,6 @@
     { file: "assets/product/5blackmamba-ad.png", title: "[Product name 5]" },
   ];
 
-  /* ---- The two videos (Video & Multimedia section) -------------------------
-     order matters: [0] is the portrait film (left phone),
-                    [1] is the landscape teaser (right phone).
-     file : 'assets/video/short-film.mp4'  (or null until you have the file)
-     ratio: width / height of the video. Portrait 9:16 = 9 / 16, landscape 16:9 = 16 / 9.  */
   var VIDEOS = [
     {
       title: "Wes Anderson-style Short Film",
