@@ -2085,16 +2085,16 @@ button.jump {
   }
 }
 
-/* Mobile adjustments for the album section */
+/* Mobile adjustments — preserve the original album design */
 @media (max-width: 600px) {
   #view-album .coral-mid {
     padding: 24px 12px 30px !important;
   }
 
-  /* Keep the album heading and label from overflowing */
+  /* Album heading */
   #view-album .albumtitle {
-    font-size: 48px;
-    padding: 12px 4px 0;
+    font-size: clamp(38px, 10vw, 48px);
+    padding: 8px 4px 0;
   }
 
   #view-album .coral-mid > div:first-child {
@@ -2107,23 +2107,26 @@ button.jump {
     padding: 6px 12px !important;
   }
 
-  /* Make the inner album area fit the phone */
+  /* Keep the paper inside the album */
   #view-album .coral-mid > div[style*="position:relative"],
   #view-album .coral-mid > div[style*="position: relative"] {
     max-width: 100%;
+    min-width: 0;
   }
 
-  #view-album .coral-mid > div[style*="display:flex"],
-  #view-album .coral-mid > div[style*="display: flex"] {
-    gap: 12px !important;
+  /* Preserve the original card proportions and spacing */
+  #view-album .coral-mid > div[style*="position: relative"] > div[style*="padding: 58px"],
+  #view-album .coral-mid > div[style*="position:relative"] > div[style*="padding: 58px"] {
+    padding: 36px 24px 40px !important;
+    gap: 24px !important;
   }
 
-  /* Two-column layout when the phone has enough room */
   #view-album .tilewrap {
-    flex: 1 1 calc(50% - 12px);
-    width: calc(50% - 12px);
-    max-width: calc(50% - 6px);
-    height: 190px;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 220px;
   }
 
   #view-album .atile {
@@ -2131,9 +2134,9 @@ button.jump {
     height: 100%;
   }
 
-  /* Keep the overlapping artwork within each card */
+  /* Retain the overlapping photo-print style */
   #view-album .print {
-    max-width: 46%;
+    max-width: none;
     padding: 4px;
     box-sizing: border-box;
   }
@@ -2141,59 +2144,69 @@ button.jump {
   #view-album .print img {
     display: block;
     max-width: 100%;
-    max-height: 78px;
-    width: auto;
-    height: auto !important;
+    max-height: 100%;
     object-fit: contain;
   }
 
   #view-album .print.pa {
-    left: 10px !important;
-    top: 12px !important;
+    left: 24px !important;
+    top: 18px !important;
   }
 
   #view-album .print.pb {
     left: auto !important;
-    right: 10px !important;
-    top: 22px !important;
+    right: 18px !important;
+    top: 30px !important;
   }
 
-  /* Make card titles readable at the smaller size */
+  /* Card labels */
+  #view-album .atile > span[style*="bottom: 12px"] {
+    left: 20px !important;
+    bottom: 12px !important;
+  }
+
   #view-album .aname {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   #view-album .asub {
-    font-size: 11px;
+    font-size: 13px;
   }
 
-  #view-album .atile > span[style*="bottom: 12px"] {
-    left: 12px !important;
-    bottom: 10px !important;
+  #view-album .anum {
+    width: 68px;
+    height: 68px;
+    font-size: 30px;
+    padding: 10px 0 0 14px;
+    box-sizing: border-box;
+  }
+
+  #view-album .astar {
+    width: 26px;
+    height: 26px;
+    right: 16px;
+    top: 14px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+  #view-album .coral-mid {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  #view-album .tilewrap {
+    height: 205px;
+  }
+
+  #view-album .aname {
+    font-size: 21px;
   }
 
   #view-album .anum {
     width: 58px;
     height: 58px;
-    padding: 10px 0 0 14px;
-    font-size: 25px;
-    box-shadow: 0 0 0 8px #fff6ee;
-  }
-
-  #view-album .astar {
-    right: 12px;
-    top: 12px;
-    width: 22px;
-    height: 22px;
-  }
-}
-
-/* Switch to one column on very narrow phones */
-@media (max-width: 380px) {
-  #view-album .tilewrap {
-    flex-basis: 100%;
-    width: 100%;
-    max-width: 100%;
-    height: 205px;
+    font-size: 26px;
   }
 }
