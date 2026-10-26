@@ -2272,3 +2272,12 @@ button.jump {
     top: 50% !important;
   }
 }
+@media (max-width: 600px) {
+  .stage {
+    height: 440px;
+  }
+
+  .cfwrap {
+    top: calc(50% - 12px) !important;
+  }
+}
