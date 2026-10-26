@@ -620,24 +620,24 @@
 
   // Each card is 410px tall; its width follows the picture's own shape (no cropping).
   function cardHeight() {
-  return window.innerWidth <= 600 ? 280 : 410;
-}
-
-function cardWidth(c) {
-  var h = cardHeight();
-
-  if (c.item.type === "image") {
-    return Math.max(
-      180,
-      Math.min(
-        window.innerWidth <= 600 ? 340 : 520,
-        Math.round((h * c.item.width) / c.item.height)
-      )
-    );
+    return window.innerWidth <= 600 ? 280 : 410;
   }
 
-  return window.innerWidth <= 600 ? 220 : 300;
-}
+  function cardWidth(c) {
+    var h = cardHeight();
+
+    if (c.item.type === "image") {
+      return Math.max(
+        180,
+        Math.min(
+          window.innerWidth <= 600 ? 340 : 520,
+          Math.round((h * c.item.width) / c.item.height),
+        ),
+      );
+    }
+
+    return window.innerWidth <= 600 ? 220 : 300;
+  }
 
   function buildCoverflow() {
     var stage = $("#stage");
@@ -653,8 +653,9 @@ function cardWidth(c) {
       wrap.className = "cfwrap";
       wrap.style.width = w + "px";
       var h = cardHeight();
-wrap.style.height = h + "px";
-wrap.style.margin = "-" + Math.round(h / 2) + "px 0 0 " + -Math.round(w / 2) + "px";
+      wrap.style.height = h + "px";
+      wrap.style.margin =
+        "-" + Math.round(h / 2) + "px 0 0 " + -Math.round(w / 2) + "px";
       wrap.style.margin = "-205px 0 0 " + -Math.round(w / 2) + "px";
       var inner;
       if (c.item.type === "image") {
@@ -710,12 +711,11 @@ wrap.style.margin = "-" + Math.round(h / 2) + "px 0 0 " + -Math.round(w / 2) + "
       var off = i - state.index;
       var a = Math.abs(off);
       var sg = off < 0 ? -1 : 1;
-      var transform =
-        "translateX(0px) translateZ(60px) rotateY(0deg) scale(1.1)";
+      var transform = "translateX(0px) translateZ(30px) rotateY(0deg) scale(1)";
       if (a > 0) {
         var tx =
           sg *
-          (cardWidth(cur) * 0.55 - 30 + cardWidth(c) * 0.265 + (a - 1) * 70);
+          (cardWidth(cur) * 0.55 - 30 + cardWidth(c) * 0.265 + (a - 1) * 50);
         var tz = -90 - (a - 1) * 45;
         var rot = -sg * 58;
         var sc = Math.max(0.7, 1 - (a - 1) * 0.05);

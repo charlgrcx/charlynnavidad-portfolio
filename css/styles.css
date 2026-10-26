@@ -2126,8 +2126,14 @@ button.jump {
   }
 
   /* Preserve the original card proportions and spacing */
-  #view-album .coral-mid > div[style*="position: relative"] > div[style*="padding: 58px"],
-  #view-album .coral-mid > div[style*="position:relative"] > div[style*="padding: 58px"] {
+  #view-album
+    .coral-mid
+    > div[style*="position: relative"]
+    > div[style*="padding: 58px"],
+  #view-album
+    .coral-mid
+    > div[style*="position:relative"]
+    > div[style*="padding: 58px"] {
     padding: 36px 24px 40px !important;
     gap: 24px !important;
   }
@@ -2255,5 +2261,14 @@ button.jump {
   .stage {
     height: 400px;
     perspective: 1000px;
+  }
+}
+@media (max-width: 600px) {
+  .stage {
+    height: 440px;
+  }
+
+  .cfwrap {
+    top: 50% !important;
   }
 }
