@@ -2251,3 +2251,9 @@ button.jump {
     max-width: 78vw;
   }
 }
+@media (max-width: 600px) {
+  .stage {
+    height: 400px;
+    perspective: 1000px;
+  }
+}

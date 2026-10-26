@@ -619,14 +619,25 @@
   var cfEls = []; // one element per design in the current tab
 
   // Each card is 410px tall; its width follows the picture's own shape (no cropping).
-  function cardWidth(c) {
-    if (c.item.type === "image")
-      return Math.max(
-        240,
-        Math.min(520, Math.round((410 * c.item.width) / c.item.height)),
-      );
-    return 300;
+  function cardHeight() {
+  return window.innerWidth <= 600 ? 280 : 410;
+}
+
+function cardWidth(c) {
+  var h = cardHeight();
+
+  if (c.item.type === "image") {
+    return Math.max(
+      180,
+      Math.min(
+        window.innerWidth <= 600 ? 340 : 520,
+        Math.round((h * c.item.width) / c.item.height)
+      )
+    );
   }
+
+  return window.innerWidth <= 600 ? 220 : 300;
+}
 
   function buildCoverflow() {
     var stage = $("#stage");
@@ -641,7 +652,9 @@
       var wrap = document.createElement("div");
       wrap.className = "cfwrap";
       wrap.style.width = w + "px";
-      wrap.style.height = "410px";
+      var h = cardHeight();
+wrap.style.height = h + "px";
+wrap.style.margin = "-" + Math.round(h / 2) + "px 0 0 " + -Math.round(w / 2) + "px";
       wrap.style.margin = "-205px 0 0 " + -Math.round(w / 2) + "px";
       var inner;
       if (c.item.type === "image") {
