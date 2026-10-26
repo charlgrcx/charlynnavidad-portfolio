@@ -2262,22 +2262,12 @@ button.jump {
     height: 400px;
     perspective: 1000px;
   }
-}
-@media (max-width: 600px) {
+}@media (max-width: 600px) {
   .stage {
     height: 440px;
   }
 
   .cfwrap {
-    top: 50% !important;
-  }
-}
-@media (max-width: 600px) {
-  .stage {
-    height: 440px;
-  }
-
-  .cfwrap {
-    top: calc(50% - 12px) !important;
+    top: calc(50% - 4px) !important;
   }
 }
