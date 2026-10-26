@@ -1097,6 +1097,17 @@ button.jump {
 .pgal:active .ptrack {
   animation-play-state: paused;
 }
+@media (hover: none) {
+  .pgal:hover .ptrack,
+  .pgal:focus-within .ptrack,
+  .pgal:active .ptrack {
+    animation-play-state: running;
+  }
+
+  .pgal.paused .ptrack {
+    animation-play-state: paused;
+  }
+}
 @keyframes pup {
   from {
     transform: translate3d(0, 0, 0);
@@ -2208,5 +2219,35 @@ button.jump {
     width: 58px;
     height: 58px;
     font-size: 26px;
+  }
+}
+/* Mobile adjustments for the Posters and Social Media gallery */
+@media (max-width: 600px) {
+  #view-gallery .tray {
+    left: 10px;
+    right: 10px;
+    top: 16px;
+    bottom: 16px;
+    border-radius: 28px;
+  }
+
+  #view-gallery .cfwrap {
+    max-width: 78vw;
+  }
+
+  #view-gallery .cf {
+    border-width: 2px;
+    border-radius: 16px;
+  }
+}
+/* Mobile: Posters and Social Media coverflow */
+@media (max-width: 600px) {
+  .stage {
+    height: 460px;
+    perspective: 1000px;
+  }
+
+  .cfwrap {
+    max-width: 78vw;
   }
 }
